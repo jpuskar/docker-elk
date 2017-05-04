@@ -17,21 +17,24 @@
 #END SAMPLE
 
 #Pattern
-SP_ULS_FMT1 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{PROG:sp_process} \(%{BASE16NUM:sp_pid}\)%{SPACE}%{BASE16NUM:sp_tid}%{SPACE}\t+%{DATA:sp_area}%{SPACE}\t+%{DATA:sp_category}%{SPACE}\t+%{DATA:sp_eventid}\t+%{SPACE}%{WORD:severity}%{SPACE}%{DATA:sp_eventmessage}%{SPACE}%{UUID:correlationid}%{SPACE}
-SP_ULS_FMT2 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{PROG:sp_process} \(%{BASE16NUM:sp_pid}\)%{SPACE}%{BASE16NUM:sp_tid}%{SPACE}\t+%{DATA:sp_area}%{SPACE}\t+%{DATA:sp_category}%{SPACE}\t+%{DATA:sp_eventid}\t+%{SPACE}%{WORD:severity}%{SPACE}%{DATA:sp_eventmessage}%{SPACE}%{UUID:correlationid}
-SP_ULS_FMT3 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{PROG:sp_process} \(%{BASE16NUM:sp_pid}\)%{SPACE}%{BASE16NUM:sp_tid}%{SPACE}\t+%{DATA:sp_area}%{SPACE}\t+%{DATA:sp_category}%{SPACE}\t+%{DATA:sp_eventid}\t+%{SPACE}%{WORD:severity}%{SPACE}%{DATA:sp_eventmessage}%{SPACE}
-SP_ULS_FMT4 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{PROG:sp_process} \(%{BASE16NUM:sp_pid}\)%{SPACE}%{BASE16NUM:sp_tid}%{SPACE}\t+%{DATA:sp_area}%{SPACE}\t+%{DATA:sp_category}%{SPACE}\t+%{DATA:sp_eventid}\t+%{SPACE}%{WORD:severity}%{SPACE}%{DATA:sp_eventmessage}
+#SP_ULS_FMT1 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{PROG:sp_process} \(%{BASE16NUM:sp_pid}\)%{SPACE}%{BASE16NUM:sp_tid}%{SPACE}\t+%{DATA:sp_area}%{SPACE}\t+%{DATA:sp_category}%{SPACE}\t+%{DATA:sp_eventid}\t+%{SPACE}%{WORD:severity}%{SPACE}%{DATA:sp_eventmessage}%{SPACE}%{UUID:correlationid}%{SPACE}
+#SP_ULS_FMT2 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{PROG:sp_process} \(%{BASE16NUM:sp_pid}\)%{SPACE}%{BASE16NUM:sp_tid}%{SPACE}\t+%{DATA:sp_area}%{SPACE}\t+%{DATA:sp_category}%{SPACE}\t+%{DATA:sp_eventid}\t+%{SPACE}%{WORD:severity}%{SPACE}%{DATA:sp_eventmessage}%{SPACE}%{UUID:correlationid}
+#SP_ULS_FMT3 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{PROG:sp_process} \(%{BASE16NUM:sp_pid}\)%{SPACE}%{BASE16NUM:sp_tid}%{SPACE}\t+%{DATA:sp_area}%{SPACE}\t+%{DATA:sp_category}%{SPACE}\t+%{DATA:sp_eventid}\t+%{SPACE}%{WORD:severity}%{SPACE}%{DATA:sp_eventmessage}%{SPACE}
+#SP_ULS_FMT4 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{PROG:sp_process} \(%{BASE16NUM:sp_pid}\)%{SPACE}%{BASE16NUM:sp_tid}%{SPACE}\t+%{DATA:sp_area}%{SPACE}\t+%{DATA:sp_category}%{SPACE}\t+%{DATA:sp_eventid}\t+%{SPACE}%{WORD:severity}%{SPACE}%{DATA:sp_eventmessage}
+SP_ULS_FMT3 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{PROG:sp_process} \(%{BASE16NUM:sp_pid}\)%{SPACE}%{BASE16NUM:sp_tid}%{SPACE}\t+%{DATA:sp_area}%{SPACE}\t+%{DATA:sp_category}%{SPACE}\t+%{DATA:sp_eventid}\t+%{SPACE}%{WORD:severity}%{SPACE}%{GREEDYDATA:sp_eventmessage}%{SPACE}
+SP_ULS_FMT4 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{PROG:sp_process} \(%{BASE16NUM:sp_pid}\)%{SPACE}%{BASE16NUM:sp_tid}%{SPACE}\t+%{DATA:sp_area}%{SPACE}\t+%{DATA:sp_category}%{SPACE}\t+%{DATA:sp_eventid}\t+%{SPACE}%{WORD:severity}%{SPACE}%{GREEDYDATA:sp_eventmessage}
 
 SP_ULS_FMT5 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{PROG:sp_process} \(%{BASE16NUM:sp_pid}\)%{SPACE}%{BASE16NUM:sp_tid}%{SPACE}\t+%{DATA:sp_area}%{SPACE}\t+%{DATA:sp_category}%{SPACE}\t+%{DATA:sp_eventid}\t+%{SPACE}%{WORD:severity}%{SPACE}
 SP_ULS_FMT6 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{DATA:sp_process} \(%{BASE16NUM:sp_pid}\)%{SPACE}%{GREEDYDATA:sp_eventmessage}%{SPACE}%{UUID:correlationid}%
 SP_ULS_FMT7 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{GREEDYDATA:sp_eventmessage}%{SPACE}%{UUID:correlationid}%{SPACE}
 SP_ULS_FMT8 (?<sptimestamp>%{MONTHNUM}/%{MONTHDAY}/%{YEAR} %{HOUR}:%{MINUTE}:%{SECOND}\*?*)%{SPACE}%{GREEDYDATA:sp_eventmessage}
 
+SP_ULS_JP (%{DATESTAMP:sptimestamp}\*?*%{SPACE}%{PROG:sp_process}%{SPACE}\(%{BASE16NUM:sp_pid}\)%{SPACE}%{BASE16NUM:sp_tid}%{SPACE}\t+%{DATA:sp_area}%{SPACE}\t+%{DATA:sp_category}%{SPACE}\t+%{DATA:sp_eventid}\t+%{SPACE}%{WORD:severity}%{SPACE}%{GREEDYDATA:sp_eventmessage})
 
-SP_ULS_FMT %{SP_ULS_FMT1}|%{SP_ULS_FMT2}|%{SP_ULS_FMT3}|%{SP_ULS_FMT4}
+#SP_ULS_FMT %{SP_ULS_FMT1}|%{SP_ULS_FMT2}|%{SP_ULS_FMT3}|%{SP_ULS_FMT4}
 #SP_ULS_FMT %{SP_ULS_FMT1}|%{SP_ULS_FMT2}|%{SP_ULS_FMT3}|%{SP_ULS_FMT4}|%{SP_ULS_FMT5}|%{SP_ULS_FMT6}|%{SP_ULS_FMT7}|%{SP_ULS_FMT8}
 #SP_ULS_FMT %{SP_ULS_FMT1}|%{SP_ULS_FMT2}|%{SP_ULS_FMT3}|%{SP_ULS_FMT4}
-
+SP_ULS_FMT %{SP_ULS_FMT3}|%{SP_ULS_FMT4}
 
 #Microsoft IIS Log Patterns formats
 #SAMPLE

@@ -4,6 +4,12 @@ filebeat.prospectors:
 
 - input_type: log
   paths:
+    - G:\games\eq1\Logs\eqlog*.txt
+  close_eof: true
+  document_type: 'everquest_log'
+
+- input_type: log
+  paths:
     - ./vmhost_logs/vmkernel*.log
     - ./vmhost_logs/vobd*.log
     - ./vmhost_logs/vpxa*.log
@@ -73,4 +79,4 @@ filebeat.prospectors:
 
 #----------------------------- Logstash output --------------------------------
 output.logstash:
-  hosts: ["127.0.0.1:5044"]
+  hosts: ["plex1:5044"]

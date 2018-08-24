@@ -1,2 +1,2 @@
-EQ_MELEE_DMG_TYPE ((slash|hit|kick|pierce|bash|punch|crush|bite|maul|backstab|claw|strike)(?:s|es|))
-EQ_MISS_TYPE ((block|miss|parry|parries|dodge|resist|riposte|deflect|reflect)(?:s|es|))
+EQ_MELEE_ACTION ((slash|hit|kick|pierce|bash|punch|crush|bite|maul|backstab|claw|strike)(?:s|es|))
+EQ_COUNTER_ACTION ((block|miss|parry|parries|dodge|resist|riposte|deflect|reflect)(?:s|es|))

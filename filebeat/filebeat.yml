@@ -4,7 +4,8 @@ filebeat.prospectors:
 
 - input_type: log
   paths:
-    - G:\games\eq1\Logs\eqlog*.txt
+    - E:\games\eq1_2\Logs\eqlog*.txt
+    - G:\games\eq1_2\Logs\eqlog*.txt
   fields:
     document_type: 'everquest_log'
   close_eof: true

@@ -12,6 +12,13 @@ filebeat.prospectors:
 
 - input_type: log
   paths:
+    - G:\games\eq_csv\resp_*.csv
+  fields:
+    document_type: 'everquest_csv_entry'
+  close_eof: true
+
+- input_type: log
+  paths:
     - ./vmhost_logs/vmkernel*.log
     - ./vmhost_logs/vobd*.log
     - ./vmhost_logs/vpxa*.log

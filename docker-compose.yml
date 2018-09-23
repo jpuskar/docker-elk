@@ -1,12 +1,18 @@
-version: '2'
+version: '3.7'
 
 services:
 
   elasticsearch:
     build: elasticsearch/
     volumes:
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-      - /docker/elk/data:/usr/share/elasticsearch/data
+      - type: volume
+        source: /docker/elk/data
+        target: /usr/share/elasticsearch/data
+        volume:
+          nocopy: true
+      - type: bind
+        source: ./elasticsearch/config/elasticsearch.yml
+        target: /usr/share/elasticsearch/config/elasticsearch.yml
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -44,3 +50,6 @@ services:
 networks:
   elk:
     driver: bridge
+
+volumes:
+  elk_vol:
